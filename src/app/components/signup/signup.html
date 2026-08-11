@@ -1,0 +1,23 @@
+<div class="signup-container">
+  <h1>Join RescueLink</h1>
+  <p class="subtitle">Sign up to report or respond to injured animals near you</p>
+
+  <form (ngSubmit)="onSubmit()">
+    <label>Full Name</label>
+    <input type="text" [(ngModel)]="fullName" name="fullName" required />
+
+    <label>Email</label>
+    <input type="email" [(ngModel)]="email" name="email" required />
+
+    <label>Phone Number</label>
+    <input type="tel" [(ngModel)]="phoneNumber" name="phoneNumber" required />
+
+    <label>Password</label>
+    <input type="password" [(ngModel)]="password" name="password" required />
+
+    <button type="submit">Create Account</button>
+  </form>
+
+  <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
+  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+</div>
