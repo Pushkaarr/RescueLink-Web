@@ -1,1 +1,10 @@
-<app-signup></app-signup>
+<div style="text-align: center; margin-top: 20px;">
+  <app-signup *ngIf="!showLogin"></app-signup>
+  <app-login *ngIf="showLogin"></app-login>
+
+  <p>
+    <a href="javascript:void(0)" (click)="toggleView()">
+      {{ showLogin ? "Don't have an account? Sign up" : "Already have an account? Log in" }}
+    </a>
+  </p>
+</div>

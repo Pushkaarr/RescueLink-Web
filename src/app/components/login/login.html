@@ -1,0 +1,17 @@
+<div class="login-container">
+  <h1>Welcome Back</h1>
+  <p class="subtitle">Log in to RescueLink</p>
+
+  <form (ngSubmit)="onSubmit()">
+    <label>Email</label>
+    <input type="email" [(ngModel)]="email" name="email" required />
+
+    <label>Password</label>
+    <input type="password" [(ngModel)]="password" name="password" required />
+
+    <button type="submit">Log In</button>
+  </form>
+
+  <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
+  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+</div>

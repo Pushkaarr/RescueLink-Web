@@ -32,7 +32,7 @@ export class Signup {
       password: this.password
     };
 
-    this.http.post('http://localhost:5062/api/auth/signup', payload).subscribe({
+    this.http.post('http://localhost:5201/api/auth/signup', payload).subscribe({
       next: () => {
         this.successMessage = 'Account created successfully! You can now log in.';
         this.fullName = '';
