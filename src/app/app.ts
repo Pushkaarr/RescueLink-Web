@@ -3,18 +3,21 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { Signup } from './components/signup/signup';
 import { Login } from './components/login/login';
+import { ReportCase } from './components/report-case/report-case';
+
+type View = 'signup' | 'login' | 'report';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule, Signup, Login],
+  imports: [RouterOutlet, CommonModule, Signup, Login, ReportCase],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
   protected title = 'rescuelink-web';
-  showLogin = false;
+  currentView: View = 'signup';
 
-  toggleView() {
-    this.showLogin = !this.showLogin;
+  setView(view: View) {
+    this.currentView = view;
   }
 }

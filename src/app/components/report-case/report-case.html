@@ -1,0 +1,40 @@
+<div class="report-container">
+  <h1>Report an Injured Animal</h1>
+  <p class="subtitle">Help us connect this animal with nearby rescuers</p>
+
+  <form (ngSubmit)="onSubmit()">
+    <label>What happened?</label>
+    <textarea [(ngModel)]="description" name="description" rows="3" required placeholder="e.g. Dog with injured leg near the market"></textarea>
+
+    <label>Animal Type</label>
+    <select [(ngModel)]="animalType" name="animalType">
+      <option value="Dog">Dog</option>
+      <option value="Cat">Cat</option>
+      <option value="Bird">Bird</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <label>Severity</label>
+    <select [(ngModel)]="severity" name="severity">
+      <option value="Mild">Mild</option>
+      <option value="Serious">Serious</option>
+      <option value="Critical">Critical</option>
+    </select>
+
+    <label>Photo URL (temporary — real upload coming soon)</label>
+    <input type="text" [(ngModel)]="photoUrl" name="photoUrl" placeholder="Paste an image link" />
+
+    <label>Location</label>
+    <button type="button" (click)="getLocation()" [disabled]="isGettingLocation">
+      {{ isGettingLocation ? "Getting location..." : "📍 Use My Current Location" }}
+    </button>
+    <p *ngIf="latitude !== null" class="location-confirm">
+      ✓ Location captured ({{ latitude | number:'1.4-4' }}, {{ longitude | number:'1.4-4' }})
+    </p>
+
+    <button type="submit" class="submit-btn">Report Case</button>
+  </form>
+
+  <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
+  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+</div>

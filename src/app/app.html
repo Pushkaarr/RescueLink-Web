@@ -1,10 +1,11 @@
 <div style="text-align: center; margin-top: 20px;">
-  <app-signup *ngIf="!showLogin"></app-signup>
-  <app-login *ngIf="showLogin"></app-login>
+  <div class="nav-links">
+    <a href="javascript:void(0)" (click)="setView('signup')">Sign Up</a> |
+    <a href="javascript:void(0)" (click)="setView('login')">Log In</a> |
+    <a href="javascript:void(0)" (click)="setView('report')">Report a Case</a>
+  </div>
 
-  <p>
-    <a href="javascript:void(0)" (click)="toggleView()">
-      {{ showLogin ? "Don't have an account? Sign up" : "Already have an account? Log in" }}
-    </a>
-  </p>
+  <app-signup *ngIf="currentView === 'signup'"></app-signup>
+  <app-login *ngIf="currentView === 'login'"></app-login>
+  <app-report-case *ngIf="currentView === 'report'"></app-report-case>
 </div>
