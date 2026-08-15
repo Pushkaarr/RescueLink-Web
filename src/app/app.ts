@@ -4,12 +4,13 @@ import { RouterOutlet } from '@angular/router';
 import { Signup } from './components/signup/signup';
 import { Login } from './components/login/login';
 import { ReportCase } from './components/report-case/report-case';
+import { CaseDetail } from './components/case-detail/case-detail';
 
-type View = 'signup' | 'login' | 'report';
+type View = 'signup' | 'login' | 'report' | 'case';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule, Signup, Login, ReportCase],
+  imports: [RouterOutlet, CommonModule, Signup, Login, ReportCase, CaseDetail],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

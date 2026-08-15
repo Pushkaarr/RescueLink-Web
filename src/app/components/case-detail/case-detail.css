@@ -1,0 +1,85 @@
+.case-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+  text-align: left;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.status-badge.open { background: #FBF0DC; color: #C97F1E; }
+.status-badge.claimed { background: #EAF3EA; color: #3E6B45; }
+.status-badge.resolved { background: #E4DED2; color: #5B6459; }
+
+h1 { margin: 0 0 8px; font-size: 22px; }
+
+.desc { color: #444; margin-bottom: 16px; }
+
+.case-photo {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.location { font-size: 13px; color: #666; }
+
+.claim-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 16px;
+  background-color: #C4472B;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+hr { margin: 24px 0; border: none; border-top: 1px solid #eee; }
+
+h2 { font-size: 16px; }
+
+.comment {
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.comment strong { font-size: 13px; }
+.comment p { margin: 4px 0 0; font-size: 14px; }
+
+.no-comments { color: #888; font-size: 13px; }
+
+.comment-form {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.comment-form input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.comment-form button {
+  padding: 10px 16px;
+  background: #1F3D33;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.error { color: red; margin-top: 12px; font-size: 13px; }

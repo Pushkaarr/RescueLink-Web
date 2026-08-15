@@ -1,0 +1,31 @@
+<div class="case-container" *ngIf="caseData()">
+  <span class="status-badge" [class]="caseData().status.toLowerCase()">{{ caseData().status }}</span>
+  <h1>{{ caseData().animalType }} — {{ caseData().severity }}</h1>
+  <p class="desc">{{ caseData().description }}</p>
+
+  <img *ngIf="caseData().photoUrl" [src]="caseData().photoUrl" class="case-photo" />
+
+  <p class="location">📍 {{ caseData().latitude | number:'1.4-4' }}, {{ caseData().longitude | number:'1.4-4' }}</p>
+
+  <button *ngIf="caseData().status === 'Open'" (click)="claimCase()" class="claim-btn">
+    I'm Taking This Case
+  </button>
+
+  <hr />
+
+  <h2>Discussion</h2>
+  <div class="comments">
+    <div *ngFor="let c of comments()" class="comment">
+      <strong>{{ c.userName }}</strong>
+      <p>{{ c.message }}</p>
+    </div>
+    <p *ngIf="comments().length === 0" class="no-comments">No comments yet.</p>
+  </div>
+
+  <div class="comment-form">
+    <input type="text" [(ngModel)]="newComment" placeholder="Add an update or ask for help..." />
+    <button (click)="postComment()">Send</button>
+  </div>
+
+  <p *ngIf="errorMessage()" class="error">{{ errorMessage() }}</p>
+</div>
