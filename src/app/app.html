@@ -4,5 +4,6 @@
   <app-signup *ngIf="currentView === 'signup'"></app-signup>
   <app-login *ngIf="currentView === 'login'" (loggedIn)="onLoginSuccess()"></app-login>
   <app-report-case *ngIf="currentView === 'report'"></app-report-case>
-  <app-case-detail *ngIf="currentView === 'case'"></app-case-detail>
+  <app-case-feed *ngIf="currentView === 'feed'" (viewCase)="onViewCase($event)"></app-case-feed>
+  <app-case-detail *ngIf="currentView === 'case'" [caseId]="selectedCaseId"></app-case-detail>
 </div>

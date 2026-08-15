@@ -1,0 +1,50 @@
+.feed-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+h1 { font-family: 'Fraunces', serif; margin-bottom: 4px; }
+
+.subtitle { color: #5B6459; margin-bottom: 24px; font-size: 14px; }
+
+.case-card {
+  background: white;
+  border: 1px solid #E4DED2;
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+  cursor: pointer;
+  transition: box-shadow 0.15s;
+}
+
+.case-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.card-top {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.severity-tag, .status-tag {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.severity-tag.mild { background: #EAF3EA; color: #3E6B45; }
+.severity-tag.serious { background: #FBF0DC; color: #C97F1E; }
+.severity-tag.critical { background: #FBE7E1; color: #C4472B; }
+
+.status-tag.open { background: #EEF3F0; color: #1F3D33; }
+.status-tag.claimed { background: #E4DED2; color: #5B6459; }
+.status-tag.resolved { background: #E4DED2; color: #5B6459; }
+
+.case-card h3 { margin: 0 0 6px; font-size: 16px; }
+.case-card p { margin: 0 0 4px; font-size: 14px; color: #444; }
+.case-card .location { font-size: 12px; color: #888; }
+
+.empty, .error { text-align: center; color: #888; margin-top: 40px; }

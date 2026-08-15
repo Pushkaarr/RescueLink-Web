@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, Input, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './case-detail.css'
 })
 export class CaseDetail implements OnInit {
-  caseId = 1;
+  @Input() caseId = 1;
   caseData = signal<any>(null);
   comments = signal<any[]>([]);
   newComment = '';

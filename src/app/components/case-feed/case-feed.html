@@ -1,0 +1,17 @@
+<div class="feed-container">
+  <h1>Nearby Cases</h1>
+  <p class="subtitle">Injured animals reported near you</p>
+
+  <div *ngFor="let c of cases()" class="case-card" (click)="openCase(c.id)">
+    <div class="card-top">
+      <span class="severity-tag" [class]="c.severity.toLowerCase()">{{ c.severity }}</span>
+      <span class="status-tag" [class]="c.status.toLowerCase()">{{ c.status }}</span>
+    </div>
+    <h3>{{ c.animalType }} — Case #{{ c.id }}</h3>
+    <p>{{ c.description }}</p>
+    <p class="location">📍 {{ c.latitude | number:'1.4-4' }}, {{ c.longitude | number:'1.4-4' }}</p>
+  </div>
+
+  <p *ngIf="cases().length === 0 && !errorMessage()" class="empty">No cases reported yet.</p>
+  <p *ngIf="errorMessage()" class="error">{{ errorMessage() }}</p>
+</div>

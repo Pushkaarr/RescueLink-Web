@@ -9,7 +9,7 @@
 
     <nav *ngIf="user() as u; else loggedOut">
       <a href="javascript:void(0)" (click)="go('report')">Report a Case</a>
-      <a href="javascript:void(0)" (click)="go('case')">View Case #1</a>
+      <a href="javascript:void(0)" (click)="go('feed')">Nearby Cases</a>
       <div class="account-area">
         <div class="avatar">{{ getInitials(u.fullName) }}</div>
         <div class="account-name">{{ u.fullName }}<span class="role">{{ u.role }}</span></div>
