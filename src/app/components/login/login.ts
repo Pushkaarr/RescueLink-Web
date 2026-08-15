@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
@@ -16,6 +16,7 @@ export class Login {
 
   successMessage = '';
   errorMessage = '';
+  @Output() loggedIn = new EventEmitter<void>();
 
   constructor(private http: HttpClient) {}
 
@@ -31,9 +32,9 @@ export class Login {
     this.http.post<any>('http://localhost:5201/api/auth/login', payload).subscribe({
       next: (response) => {
         this.successMessage = `Welcome back, ${response.fullName}!`;
-        // Save the token so we can use it for future requests (like claiming a case)
         localStorage.setItem('rescuelink_token', response.token);
         localStorage.setItem('rescuelink_user', JSON.stringify(response));
+        this.loggedIn.emit();
       },
       error: (err) => {
         this.errorMessage = 'Invalid email or password.';
