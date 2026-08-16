@@ -21,12 +21,14 @@
       <option value="Critical">Critical</option>
     </select>
 
-    <label>Photo URL (temporary — real upload coming soon)</label>
-    <input type="text" [(ngModel)]="photoUrl" name="photoUrl" placeholder="Paste an image link" />
+    <label>Photo</label>
+    <input type="file" accept="image/*" (change)="onFileSelected($event)" />
+    <p *ngIf="isUploadingPhoto()" class="uploading">Uploading photo...</p>
+    <img *ngIf="photoUrl() && !isUploadingPhoto()" [src]="photoUrl()" class="photo-preview" />
 
     <label>Location</label>
-    <button type="button" (click)="getLocation()" [disabled]="isGettingLocation">
-      {{ isGettingLocation ? "Getting location..." : "📍 Use My Current Location" }}
+    <button type="button" (click)="getLocation()" [disabled]="isGettingLocation()">
+      {{ isGettingLocation() ? "Getting location..." : "📍 Use My Current Location" }}
     </button>
     <p *ngIf="latitude !== null" class="location-confirm">
       ✓ Location captured ({{ latitude | number:'1.4-4' }}, {{ longitude | number:'1.4-4' }})
@@ -35,6 +37,6 @@
     <button type="submit" class="submit-btn">Report Case</button>
   </form>
 
-  <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
-  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+  <p *ngIf="successMessage()" class="success">{{ successMessage() }}</p>
+  <p *ngIf="errorMessage()" class="error">{{ errorMessage() }}</p>
 </div>

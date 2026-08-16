@@ -79,3 +79,15 @@ button[type="button"] {
   color: red;
   margin-top: 16px;
 }
+
+.uploading {
+  color: #C97F1E;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.photo-preview {
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 10px;
+}
