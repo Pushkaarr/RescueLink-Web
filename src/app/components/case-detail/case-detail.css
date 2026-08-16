@@ -83,3 +83,19 @@ h2 { font-size: 16px; }
 }
 
 .error { color: red; margin-top: 12px; font-size: 13px; }
+
+.unclaim-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 16px;
+  background-color: transparent;
+  color: #C4472B;
+  border: 1.5px solid #C4472B;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.unclaim-btn:hover {
+  background-color: #FBE7E1;
+}

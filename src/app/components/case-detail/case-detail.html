@@ -11,6 +11,10 @@
     I'm Taking This Case
   </button>
 
+  <button *ngIf="caseData().status === 'Claimed'" (click)="unclaimCase()" class="unclaim-btn">
+    I Can't Take This Anymore — Reopen Case
+  </button>
+
   <hr />
 
   <h2>Discussion</h2>

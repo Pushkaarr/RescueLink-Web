@@ -76,4 +76,21 @@ export class CaseDetail implements OnInit {
       error: () => this.errorMessage.set('Could not claim case (maybe already claimed).')
     });
   }
+
+  unclaimCase() {
+    const token = localStorage.getItem('rescuelink_token');
+    if (!token) {
+      this.errorMessage.set('Please log in to unclaim a case.');
+      return;
+    }
+
+    this.http.put(
+      `http://localhost:5201/api/cases/${this.caseId}/unclaim`,
+      {},
+      { headers: { Authorization: `Bearer ${token}` } }
+    ).subscribe({
+      next: () => this.loadCase(),
+      error: () => this.errorMessage.set('Could not unclaim case.')
+    });
+  }
 }
