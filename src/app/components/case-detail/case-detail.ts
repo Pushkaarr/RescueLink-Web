@@ -93,4 +93,21 @@ export class CaseDetail implements OnInit {
       error: () => this.errorMessage.set('Could not unclaim case.')
     });
   }
+
+  overrideClaim() {
+    const token = localStorage.getItem('rescuelink_token');
+    if (!token) {
+      this.errorMessage.set('Please log in to override a claim.');
+      return;
+    }
+
+    this.http.put(
+      `http://localhost:5201/api/cases/${this.caseId}/override-claim`,
+      {},
+      { headers: { Authorization: `Bearer ${token}` } }
+    ).subscribe({
+      next: () => this.loadCase(),
+      error: () => this.errorMessage.set('Could not override claim. Only verified NGOs or trusted responders can do this on critical cases.')
+    });
+  }
 }

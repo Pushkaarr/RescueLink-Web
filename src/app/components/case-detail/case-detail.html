@@ -15,6 +15,10 @@
     I Can't Take This Anymore — Reopen Case
   </button>
 
+  <button *ngIf="caseData().status === 'Claimed' && caseData().severity === 'Critical'" (click)="overrideClaim()" class="override-btn">
+    ⚠️ Take Over — Critical Case
+  </button>
+
   <hr />
 
   <h2>Discussion</h2>
